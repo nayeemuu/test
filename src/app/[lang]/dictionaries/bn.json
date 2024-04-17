@@ -1,0 +1,18 @@
+{
+  "sidebar": {
+    "trending": "চলমান",
+    "newRelease": "নতুন রিলিজ",
+    "commingSoon": "শীঘ্রই আসছে",
+    "favourites": "প্রিয়",
+    "watchLater": "পরে দেখুন"
+  },
+  "movieCard": { "details": "বিস্তারিত" },
+  "movieDetails": {
+    "releaseDate": "মুক্তির তারিখ",
+    "averageVote": "গড় ভোট",
+    "voteCount": "ভোট",
+    "popularity": "জনপ্রিয়তা",
+    "streamInHD": "HD তে Stream করুন",
+    "downloadInHD": "HD তে Download করুন"
+  }
+}
