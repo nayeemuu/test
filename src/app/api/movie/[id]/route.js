@@ -1,29 +1,33 @@
-import { movies } from '@/data/dataForBackend';
+import { movieList } from '@/data/dataForBackend';
 
 export async function GET(_request, { params }) {
   const movieId = params.id;
 
-  const targetedMovie = movies.results.find(
+  const targetedMovie = movieList.results.find(
     (movie) => movie.id === parseInt(movieId)
   );
 
   if (targetedMovie) {
-    return Response.json(found);
+    return Response.json(targetedMovie);
   } else {
-    return Response.json({ error: `movie with this ${movieId} is not found` });
+    return Response.json({
+      error: `Movie with this id - ${movieId} is not found`,
+    });
   }
 }
 
 export async function DELETE(request, { params }) {
   const movieId = params.id;
 
-  const targetedMovie = movies.results.find(
+  const targetedMovie = movieList.results.find(
     (movie) => movie.id === parseInt(movieId)
   );
   if (targetedMovie) {
-    return Response.json({ message: `movie successfully deleted` });
+    return Response.json({ message: `Movie delete successful` });
   } else {
-    return Response.json({ error: `movie with this ${movieId} is not found` });
+    return Response.json({
+      error: `Movie with this  id - ${movieId} is not found`,
+    });
   }
 }
 
@@ -32,17 +36,17 @@ export async function PATCH(request, { params }) {
     const movieId = params.id;
     const reqBody = await request.json();
 
-    const targetedMovie = movies.results.find(
+    const targetedMovie = movieList.results.find(
       (movie) => movie.id === parseInt(movieId)
     );
     if (targetedMovie) {
       return Response.json({
-        message: 'data update successful',
-        updatedData: { ...targetedMovie, ...reqBody },
+        message: 'Data Update Successful',
+        data: { ...targetedMovie, ...reqBody },
       });
     } else {
       return Response.json({
-        error: `movie with this ${movieId} is not found`,
+        error: `Movie with this  id - ${movieId} is not found`,
       });
     }
   } catch (error) {
